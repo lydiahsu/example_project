@@ -1,6 +1,6 @@
 ---
 title: "Decision Tree Example"
-output: html_notebook
+output: github_document
 author: Lydia Hsu
 ---
 Load the dataset.
