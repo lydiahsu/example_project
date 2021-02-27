@@ -1,0 +1,50 @@
+---
+title: "Decision Tree Example"
+output: html_notebook
+author: Lydia Hsu
+---
+Load the dataset.
+```{r}
+library(ISLR)
+data("Hitters")
+summary(Hitters)
+```
+
+Exploratory data analysis.
+```{r}
+sum(is.na(Hitters))
+hitters = Hitters[!is.na(Hitters),]
+hist(Hitters$AtBat)
+hist(Hitters$Hits)
+pairs(Hitters[,1:10])
+```
+Random forest model.
+```{r}
+library(tree)
+hitters_tree = tree(Salary ~., data = Hitters)
+hitters_tree
+```
+
+```{r}
+summary(hitters_tree)
+```
+
+```{r}
+plot(hitters_tree )
+text(hitters_tree ,pretty =0)
+```
+```{r}
+hitters_prune=prune.tree(hitters_tree)
+plot(hitters_prune )
+```
+ramdom forest
+```{r}
+library(randomForest)
+hitters_rf = randomForest(Salary ~., data = na.omit(Hitters))
+hitters_rf
+```
+
+```{r}
+importance(hitters_rf)
+varImpPlot(hitters_rf)
+```
