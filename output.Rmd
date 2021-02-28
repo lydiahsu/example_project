@@ -3,6 +3,14 @@ title: "Decision Tree Example"
 output: github_document
 author: Lydia Hsu
 ---
+Motivation:
+Goal:
+
+
+Dataset: source: 
+
+
+
 Load the dataset.
 ```{r}
 library(ISLR)
@@ -11,14 +19,19 @@ summary(Hitters)
 ```
 
 Exploratory data analysis.
+Description of the dataset. 
+Run: 
+EBI: ...
+
 ```{r}
-sum(is.na(Hitters))
+sum(is.na(Hitters)) # checking missingness
 hitters = Hitters[!is.na(Hitters),]
 hist(Hitters$AtBat)
 hist(Hitters$Hits)
 pairs(Hitters[,1:10])
 ```
-Random forest model.
+
+Decision tree model.
 ```{r}
 library(tree)
 hitters_tree = tree(Salary ~., data = Hitters)
@@ -48,3 +61,6 @@ hitters_rf
 importance(hitters_rf)
 varImpPlot(hitters_rf)
 ```
+summary of my models:
+
+conclusion: 
